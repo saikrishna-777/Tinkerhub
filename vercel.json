@@ -1,0 +1,38 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/Memeboard/index.html"
+    },
+    {
+      "source": "/style.css",
+      "destination": "/Memeboard/style.css"
+    },
+    {
+      "source": "/script.js",
+      "destination": "/Memeboard/script.js"
+    },
+    {
+      "source": "/sounds/:path*",
+      "destination": "/Memeboard/sounds/:path*"
+    },
+    {
+      "source": "/assets/:path*",
+      "destination": "/Memeboard/assets/:path*"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/Memeboard/sounds/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ]
+}
